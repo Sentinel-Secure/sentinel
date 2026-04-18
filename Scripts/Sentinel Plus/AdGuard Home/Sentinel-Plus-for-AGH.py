@@ -75,12 +75,12 @@ def get_vt_score(domain: str) -> int:
             log.warning("Rate limit VirusTotal atteint. Pause de 60s...")
             time.sleep(60)
     except Exception as e:
-        log.error(f"Erreur VirusTotal pour {domain} : {e}")
+        log.error(f"VirusTotal Error for {domain} : {e}")
     return 0
 
 
 def block_domain(domain: str) -> None:
-    """Ajoute un domaine aux règles de filtrage AdGuard Home via set_rules."""
+    """Add a domain to AdGuard Home's filtering rules using set_rules."""
     url_get = f"{AGH_URL}/control/filtering/status"
     url_set = f"{AGH_URL}/control/filtering/set_rules"
     try:
@@ -89,25 +89,25 @@ def block_domain(domain: str) -> None:
         existing_rules = r.json().get("user_rules", [])
         new_rule = f"||{domain}^"
         if new_rule in existing_rules:
-            log.info(f"⏭️  Déjà dans les règles : {domain}")
+            log.info(f"⏭️  Already in rules : {domain}")
             return
         existing_rules.append(new_rule)
         r2 = session.post(url_set, json={"rules": existing_rules}, timeout=5)
         if r2.status_code == 200:
-            log.info(f"✅ Bloqué avec succès : {domain}")
+            log.info(f"✅ Succesfuly blocked : {domain}")
         else:
-            log.error(f"Erreur AdGuard ({r2.status_code}) : {r2.text}")
+            log.error(f"AdGuard Error ({r2.status_code}) : {r2.text}")
     except Exception as e:
-        log.error(f"Erreur réseau lors du blocage de {domain} : {e}")
+        log.error(f"Network Error while blocking : {domain} : {e}")
 
 
 def is_whitelisted(domain: str) -> bool:
-    """Vérifie si le domaine est dans la whitelist."""
+    """Verify if the domain is whitelisted."""
     return any(w in domain for w in WHITELIST)
 
 
 def add_to_cache(domain: str) -> None:
-    """Ajoute un domaine au cache en gérant proprement l'éjection."""
+    """Adds a domain to the cache while properly handling ejection."""
     if len(already_scanned) == MAX_SCANNED_CACHE:
         oldest = already_scanned[0]
         scanned_set.discard(oldest)
@@ -150,7 +150,7 @@ def fetch_new_domains() -> set:
 
 
 def main() -> None:
-    log.info("🚀 SENTINEL ACTIVATED AND READY")
+    log.info("🚀 SENTINEL PLUS ACTIVATED AND READY")
 
     while True:
         new_domains = fetch_new_domains()
