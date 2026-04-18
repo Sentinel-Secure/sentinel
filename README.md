@@ -20,6 +20,12 @@ Sentinel is a lightweight Python daemon that monitors your DNS query log in real
 3. *(Pro only)* Verifies flagged domains against the VirusTotal API
 4. Automatically blocks confirmed threats in your DNS server
 
+## Note
+This project was created with the help of Gemini and Claude.
+
+## Issues
+If you encounter a problem, please open an issue on the GitHub repository.
+
 ## Requirements
 
 - Python 3.8+
