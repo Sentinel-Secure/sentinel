@@ -8,10 +8,10 @@ Sentinel is a lightweight Python daemon that monitors your DNS query log in real
 
 | Version | DNS Server | VirusTotal | File |
 |---|---|---|---|
-| Sentinel Lite | AdGuard Home | ❌ | `sentinel-lite.py` |
-| Sentinel Pro | AdGuard Home | ✅ | `sentinel-pro.py` |
+| Sentinel Lite | AdGuard Home | ❌ | `sentinel-lite-for-agh.py` |
+| Sentinel Plus | AdGuard Home | ✅ | `sentinel-plus-for-agh.py` |
 | Sentinel Lite | Pi-hole v6 | ❌ | `sentinel-lite-pihole.py` |
-| Sentinel Pro | Pi-hole v6 | ✅ | `sentinel-pro-pihole.py` |
+| Sentinel Plus | Pi-hole v6 | ✅ | `sentinel-plus-pihole.py` |
 
 ## How it works
 
@@ -30,7 +30,7 @@ If you encounter a problem, please open an issue on the GitHub repository.
 
 - Python 3.8+
 - AdGuard Home **or** Pi-hole v6 instance
-- VirusTotal API key *(Pro versions only (Free) — free tier supported)*
+- VirusTotal API key *(Plus versions only — free tier supported)*
 - A Debian server (VM, LXC container or Bare metal server)
 
 ## Installation
@@ -99,7 +99,7 @@ Paste the following:
 
 ```ini
 [Unit]
-Description=Sentinel-Pro AdGuard Threat Intelligence
+Description=Sentinel-Plus AdGuard Threat Intelligence
 After=network.target
 
 [Service]
@@ -160,7 +160,7 @@ WHITELIST = [
 2. Go to your profile → **API Key**
 3. Copy the key into your `.env` file
 
-The free tier allows 4 requests/minute — Sentinel Pro handles this automatically.
+The free tier allows 4 requests/minute — Sentinel Plus handles this automatically.
 
 ---
 
