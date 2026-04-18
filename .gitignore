@@ -1,0 +1,24 @@
+# Credentials - NEVER commit these
+.env
+
+# Logs
+*.log
+
+# Cache
+sentinel_cache.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
