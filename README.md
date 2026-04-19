@@ -62,14 +62,14 @@ nano .env
 AGH_URL=http://YOUR_ADGUARD_IP:80
 AGH_USER=your_username
 AGH_PASS=your_password
-VT_API_KEY=your_virustotal_key   # Pro only
+VT_API_KEY=your_virustotal_key  # Plus versions only
 ```
 
 **Pi-hole versions:**
 ```env
 PIHOLE_URL=http://YOUR_PIHOLE_IP
 PIHOLE_PASSWORD=your_pihole_password
-VT_API_KEY=your_virustotal_key   # Pro only
+VT_API_KEY=your_virustotal_key   # Plus versions only
 ```
 
 ### 4. Run manually
